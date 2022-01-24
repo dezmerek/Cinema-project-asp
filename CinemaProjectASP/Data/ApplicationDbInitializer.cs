@@ -25,28 +25,28 @@ namespace CinemaProject.Data
                     {
                     new Sala()
                     {
-                        Nazwa = "Sala 1",
-                        Opis = "Opis Opis"
+                        Nazwa = "Merkury",
+                        Opis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur risus non orci volutpat aliquam. Cras nec porttitor sem. Praesent in aliquet est, quis tincidunt."
                     },
                     new Sala()
                     {
-                        Nazwa = "Sala 2",
-                        Opis = "Opis Opis"
+                        Nazwa = "Wenus",
+                        Opis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur risus non orci volutpat aliquam. Cras nec porttitor sem. Praesent in aliquet est, quis tincidunt."
                     },
                     new Sala()
                     {
-                        Nazwa = "Sala 3",
-                        Opis = "Opis Opis"
+                        Nazwa = "Ziemia",
+                        Opis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur risus non orci volutpat aliquam. Cras nec porttitor sem. Praesent in aliquet est, quis tincidunt."
                     },
                     new Sala()
                     {
-                        Nazwa = "Sala 4",
-                        Opis = "Opis Opis"
+                        Nazwa = "Mars",
+                        Opis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur risus non orci volutpat aliquam. Cras nec porttitor sem. Praesent in aliquet est, quis tincidunt."
                     },
                     new Sala()
                     {
-                        Nazwa = "Sala 5",
-                        Opis = "Opis Opis"
+                        Nazwa = "Jowisz",
+                        Opis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur risus non orci volutpat aliquam. Cras nec porttitor sem. Praesent in aliquet est, quis tincidunt."
                     },
                     });
                     context.SaveChanges();
@@ -61,31 +61,31 @@ namespace CinemaProject.Data
                     {
                         ImieNazwisko = "Mark Wahlberg",
                         RokUrodzenia = 1971,
-                        Biografia = "Mark Robert Michael Wahlberg, znany również jako Marky Mark – amerykański aktor, producent filmowy, piosenkarz i model.",
+                        Biografia = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non pulvinar augue, a dignissim leo. Cras eu neque id turpis lobortis euismod. Donec eros velit, imperdiet et venenatis eget, consectetur imperdiet est. Aenean nec tempor augue. Proin in pretium odio. Cras tempor luctus lorem. Proin faucibus dictum erat, sit amet finibus lorem vehicula nec. Morbi ultricies elit quis interdum faucibus.",
                     },
                     new Aktor()
                     {
-                        ImieNazwisko = "Aktor 2",
-                        RokUrodzenia = 2001,
-                        Biografia = "Aktor Aktor",
+                        ImieNazwisko = "Salma Hayek",
+                        RokUrodzenia = 1966,
+                        Biografia = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non pulvinar augue, a dignissim leo. Cras eu neque id turpis lobortis euismod. Donec eros velit, imperdiet et venenatis eget, consectetur imperdiet est. Aenean nec tempor augue. Proin in pretium odio. Cras tempor luctus lorem. Proin faucibus dictum erat, sit amet finibus lorem vehicula nec. Morbi ultricies elit quis interdum faucibus.",
                     },
                     new Aktor()
                     {
-                        ImieNazwisko = "Aktor 3",
-                        RokUrodzenia = 2001,
-                        Biografia = "Aktor Aktor",
+                        ImieNazwisko = "Antonio Banderas",
+                        RokUrodzenia = 1960,
+                        Biografia = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non pulvinar augue, a dignissim leo. Cras eu neque id turpis lobortis euismod. Donec eros velit, imperdiet et venenatis eget, consectetur imperdiet est. Aenean nec tempor augue. Proin in pretium odio. Cras tempor luctus lorem. Proin faucibus dictum erat, sit amet finibus lorem vehicula nec. Morbi ultricies elit quis interdum faucibus.",
                     },
                     new Aktor()
                     {
-                        ImieNazwisko = "Aktor 4",
-                        RokUrodzenia = 2001,
-                        Biografia = "Aktor Aktor",
+                        ImieNazwisko = "Sophia Ali",
+                        RokUrodzenia = 1995,
+                        Biografia = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non pulvinar augue, a dignissim leo. Cras eu neque id turpis lobortis euismod. Donec eros velit, imperdiet et venenatis eget, consectetur imperdiet est. Aenean nec tempor augue. Proin in pretium odio. Cras tempor luctus lorem. Proin faucibus dictum erat, sit amet finibus lorem vehicula nec. Morbi ultricies elit quis interdum faucibus.",
                     },
                     new Aktor()
                     {
-                        ImieNazwisko = "Aktor 5",
-                        RokUrodzenia = 2001,
-                        Biografia = "Aktor Aktor",
+                        ImieNazwisko = "Tom Holland",
+                        RokUrodzenia = 1996,
+                        Biografia = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non pulvinar augue, a dignissim leo. Cras eu neque id turpis lobortis euismod. Donec eros velit, imperdiet et venenatis eget, consectetur imperdiet est. Aenean nec tempor augue. Proin in pretium odio. Cras tempor luctus lorem. Proin faucibus dictum erat, sit amet finibus lorem vehicula nec. Morbi ultricies elit quis interdum faucibus.",
                     },
                     });
                     context.SaveChanges();
@@ -100,31 +100,31 @@ namespace CinemaProject.Data
                     {
                         ImieNazwisko = "Ruben Fleischer",
                         RokUrodzenia = 1974,
-                        Biografia = "Ruben Fleischer amerykański reżyser, urodzony w 1974, znany z Venom, Zombieland, Gangster Squad. Pogromcy mafii.",
+                        Biografia = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non pulvinar augue, a dignissim leo. Cras eu neque id turpis lobortis euismod. Donec eros velit, imperdiet et venenatis eget, consectetur imperdiet est. Aenean nec tempor augue. Proin in pretium odio. Cras tempor luctus lorem. Proin faucibus dictum erat, sit amet finibus lorem vehicula nec. Morbi ultricies elit quis interdum faucibus.",
                     },
                     new Rezyser()
                     {
-                        ImieNazwisko = "Rezyser 2",
-                        RokUrodzenia = 2001,
-                        Biografia = "Rezyser Rezyser",
+                        ImieNazwisko = "Joachim Trier",
+                        RokUrodzenia = 1974,
+                        Biografia = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non pulvinar augue, a dignissim leo. Cras eu neque id turpis lobortis euismod. Donec eros velit, imperdiet et venenatis eget, consectetur imperdiet est. Aenean nec tempor augue. Proin in pretium odio. Cras tempor luctus lorem. Proin faucibus dictum erat, sit amet finibus lorem vehicula nec. Morbi ultricies elit quis interdum faucibus.",
                     },
                     new Rezyser()
                     {
-                        ImieNazwisko = "Rezyser 3",
-                        RokUrodzenia = 2001,
-                        Biografia = "Rezyser Rezyser",
+                        ImieNazwisko = "Matt Reeves",
+                        RokUrodzenia = 1966,
+                        Biografia = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non pulvinar augue, a dignissim leo. Cras eu neque id turpis lobortis euismod. Donec eros velit, imperdiet et venenatis eget, consectetur imperdiet est. Aenean nec tempor augue. Proin in pretium odio. Cras tempor luctus lorem. Proin faucibus dictum erat, sit amet finibus lorem vehicula nec. Morbi ultricies elit quis interdum faucibus.",
                     },
                     new Rezyser()
                     {
-                        ImieNazwisko = "Rezyser 4",
-                        RokUrodzenia = 2001,
-                        Biografia = "Rezyser Rezyser",
+                        ImieNazwisko = "Paloma Baeza",
+                        RokUrodzenia = 1975,
+                        Biografia = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non pulvinar augue, a dignissim leo. Cras eu neque id turpis lobortis euismod. Donec eros velit, imperdiet et venenatis eget, consectetur imperdiet est. Aenean nec tempor augue. Proin in pretium odio. Cras tempor luctus lorem. Proin faucibus dictum erat, sit amet finibus lorem vehicula nec. Morbi ultricies elit quis interdum faucibus.",
                     },
                     new Rezyser()
                     {
-                        ImieNazwisko = "Rezyser 5",
-                        RokUrodzenia = 2001,
-                        Biografia = "Rezyser Rezyser",
+                        ImieNazwisko = "Matt Bettinelli-Olpin",
+                        RokUrodzenia = 1978,
+                        Biografia = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non pulvinar augue, a dignissim leo. Cras eu neque id turpis lobortis euismod. Donec eros velit, imperdiet et venenatis eget, consectetur imperdiet est. Aenean nec tempor augue. Proin in pretium odio. Cras tempor luctus lorem. Proin faucibus dictum erat, sit amet finibus lorem vehicula nec. Morbi ultricies elit quis interdum faucibus.",
                     },
                     });
                     context.SaveChanges();
@@ -137,67 +137,67 @@ namespace CinemaProject.Data
                     {
                         new Film()
                         {
-                            Nazwa = "Life",
-                            Opis = "This is the Life movie description",
+                            Nazwa = "Anioły w Ameryce",
+                            Opis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur risus non orci volutpat aliquam. Cras nec porttitor sem. Praesent in aliquet est, quis tincidunt.",
                             Cena = 39.50,
                             OdKiedy  = DateTime.Now.AddDays(-10),
-                            DoKiedy = DateTime.Now.AddDays(10),
+                            DoKiedy = DateTime.Now,
                             SalaId = 3,
                             RezyserId = 3,
                             FilmKategoria = FilmKategoria.Akcja
                         },
                         new Film()
                         {
-                            Nazwa = "Life",
-                            Opis = "This is the Life movie description",
+                            Nazwa = "Fargo",
+                            Opis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur risus non orci volutpat aliquam. Cras nec porttitor sem. Praesent in aliquet est, quis tincidunt.",
                             Cena = 39.50,
-                            OdKiedy  = DateTime.Now.AddDays(-10),
-                            DoKiedy = DateTime.Now.AddDays(10),
+                            OdKiedy  = DateTime.Now,
+                            DoKiedy = DateTime.Now.AddDays(3),
                             SalaId = 1,
                             RezyserId = 1,
                             FilmKategoria = FilmKategoria.Akcja
                         },
                         new Film()
                         {
-                            Nazwa = "Life",
-                            Opis = "This is the Life movie description",
+                            Nazwa = "Moonfall",
+                            Opis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur risus non orci volutpat aliquam. Cras nec porttitor sem. Praesent in aliquet est, quis tincidunt.",
                             Cena = 39.50,
-                            OdKiedy  = DateTime.Now.AddDays(-10),
-                            DoKiedy = DateTime.Now.AddDays(10),
+                            OdKiedy  = DateTime.Now,
+                            DoKiedy = DateTime.Now.AddDays(7),
                             SalaId = 4,
                             RezyserId = 4,
                             FilmKategoria = FilmKategoria.Akcja
                         },
                         new Film()
                         {
-                            Nazwa = "Life",
-                            Opis = "This is the Life movie description",
+                            Nazwa = "Ból i blask",
+                            Opis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur risus non orci volutpat aliquam. Cras nec porttitor sem. Praesent in aliquet est, quis tincidunt.",
                             Cena = 39.50,
                             OdKiedy  = DateTime.Now.AddDays(-10),
-                            DoKiedy = DateTime.Now.AddDays(10),
+                            DoKiedy = DateTime.Now.AddDays(-5),
                             SalaId = 1,
                             RezyserId = 2,
                             FilmKategoria = FilmKategoria.Akcja
                         },
                         new Film()
                         {
-                            Nazwa = "Life",
-                            Opis = "This is the Life movie description",
+                            Nazwa = "Maska Zorro",
+                            Opis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur risus non orci volutpat aliquam. Cras nec porttitor sem. Praesent in aliquet est, quis tincidunt.",
                             Cena = 39.50,
                             OdKiedy  = DateTime.Now.AddDays(-10),
-                            DoKiedy = DateTime.Now.AddDays(10),
-                            SalaId = 1,
+                            DoKiedy = DateTime.Now.AddDays(-2),
+                            SalaId = 5,
                             RezyserId = 3,
                             FilmKategoria = FilmKategoria.Akcja
                         },
                         new Film()
                         {
-                            Nazwa = "Life",
-                            Opis = "This is the Life movie description",
+                            Nazwa = "Desperado",
+                            Opis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur risus non orci volutpat aliquam. Cras nec porttitor sem. Praesent in aliquet est, quis tincidunt.",
                             Cena = 39.50,
-                            OdKiedy  = DateTime.Now.AddDays(-10),
-                            DoKiedy = DateTime.Now.AddDays(10),
-                            SalaId = 1,
+                            OdKiedy  = DateTime.Now.AddDays(3),
+                            DoKiedy = DateTime.Now.AddDays(20),
+                            SalaId = 2,
                             RezyserId = 5,
                             FilmKategoria = FilmKategoria.Akcja
                         },
