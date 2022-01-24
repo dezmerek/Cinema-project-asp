@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CinemaProjectASP.Data.Base;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace CinemaProjectASP.Models
 {
-    public class Aktor
+    public class Aktor : IEntityBase
     {
         [HiddenInput]
         [Key]
