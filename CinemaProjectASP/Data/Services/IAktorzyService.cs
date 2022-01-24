@@ -10,6 +10,6 @@ namespace CinemaProjectASP.Data.Services
         Task<Aktor> GetByIdAsync(int id);
         Task AddAsync(Aktor aktor);
         Task<Aktor> UpdateAsync(int id, Aktor nowyAktor);
-        void Delete(int id);
+        Task  DeleteAsync(int id);
     }
 }

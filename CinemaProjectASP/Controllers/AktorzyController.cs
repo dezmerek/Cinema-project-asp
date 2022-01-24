@@ -66,5 +66,23 @@ namespace CinemaProjectASP.Controllers
             await _service.UpdateAsync(id, aktor);
             return RedirectToAction(nameof(Index));
         }
+
+        //Get: Aktorzy/Usun/1
+        public async Task<IActionResult> Usun(int id)
+        {
+            var aktorSzczegoly = await _service.GetByIdAsync(id);
+            if (aktorSzczegoly == null) return View("NotFound");
+            return View(aktorSzczegoly);
+        }
+
+        [HttpPost, ActionName("Usun")]
+        public async Task<IActionResult> UsunPotwierdzenie(int id)
+        {
+            var aktorSzczegoly=await _service.GetByIdAsync(id);
+            if (aktorSzczegoly == null) return View("NotFound");
+
+            await _service.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
