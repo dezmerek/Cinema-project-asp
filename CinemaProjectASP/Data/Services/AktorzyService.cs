@@ -37,9 +37,11 @@ namespace CinemaProjectASP.Data.Services
             return result;
         }
 
-        public Aktor Update(int id, Aktor newAktor)
+        public async Task<Aktor> UpdateAsync(int id, Aktor nowyAktor)
         {
-            throw new System.NotImplementedException();
+            _context.Update(nowyAktor);
+            await _context.SaveChangesAsync();
+            return nowyAktor;
         }
     }
 }

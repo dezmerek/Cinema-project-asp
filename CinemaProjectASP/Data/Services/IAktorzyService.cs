@@ -9,7 +9,7 @@ namespace CinemaProjectASP.Data.Services
         Task<IEnumerable<Aktor>> GetAllAsync();
         Task<Aktor> GetByIdAsync(int id);
         Task AddAsync(Aktor aktor);
-        Aktor Update(int id, Aktor newAktor);
+        Task<Aktor> UpdateAsync(int id, Aktor nowyAktor);
         void Delete(int id);
     }
 }
