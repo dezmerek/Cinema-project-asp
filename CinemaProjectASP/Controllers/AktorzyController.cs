@@ -18,7 +18,7 @@ namespace CinemaProjectASP.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var data = await _service.GetAll();
+            var data = await _service.GetAllAsync();
             return View(data);
         }
 
@@ -35,8 +35,17 @@ namespace CinemaProjectASP.Controllers
             {
                 return View(aktor);
             }
-            _service.Add(aktor);
+            await _service.AddAsync(aktor);
             return RedirectToAction(nameof(Index));
+        }
+
+        //Get: Aktorzy/Szczegoly/1
+        public async Task<IActionResult> Szczegoly(int id)
+        {
+            var aktorSzczegoly = await _service.GetByIdAsync(id);
+
+            if (aktorSzczegoly == null) return View("Empty");
+            return View(aktorSzczegoly);
         }
     }
 }

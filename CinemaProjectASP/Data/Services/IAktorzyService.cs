@@ -6,9 +6,9 @@ namespace CinemaProjectASP.Data.Services
 {
     public interface IAktorzyService
     {
-        Task<IEnumerable<Aktor>> GetAll();
-        Aktor GetById(int id);
-        void Add(Aktor aktor);
+        Task<IEnumerable<Aktor>> GetAllAsync();
+        Task<Aktor> GetByIdAsync(int id);
+        Task AddAsync(Aktor aktor);
         Aktor Update(int id, Aktor newAktor);
         void Delete(int id);
     }

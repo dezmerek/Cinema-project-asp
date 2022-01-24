@@ -14,10 +14,10 @@ namespace CinemaProjectASP.Data.Services
             _context = context;
         }
 
-        public void Add(Aktor aktor)
+        public async Task AddAsync(Aktor aktor)
         {
-            _context.Aktorzy.Add(aktor);
-            _context.SaveChanges();
+            await _context.Aktorzy.AddAsync(aktor);
+            await _context.SaveChangesAsync();
         }
 
         public void Delete(int id)
@@ -25,15 +25,16 @@ namespace CinemaProjectASP.Data.Services
             throw new System.NotImplementedException();
         }
 
-        public async Task<IEnumerable<Aktor>> GetAll()
+        public async Task<IEnumerable<Aktor>> GetAllAsync()
         {
             var result = await _context.Aktorzy.ToListAsync();
             return result;
         }
 
-        public Aktor GetById(int id)
+        public async Task<Aktor> GetByIdAsync(int id)
         {
-            throw new System.NotImplementedException();
+            var result = await _context.Aktorzy.FirstOrDefaultAsync(n=>n.Id==id);
+            return result;
         }
 
         public Aktor Update(int id, Aktor newAktor)

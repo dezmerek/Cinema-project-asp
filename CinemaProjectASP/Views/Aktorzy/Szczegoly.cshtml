@@ -1,0 +1,40 @@
+﻿@model Aktor
+
+@{
+    ViewData["Title"] = "Szczegoly aktora";
+}
+
+<div class="row text">
+    <div class="col-md-4 offset-4">
+        <p>
+            <h1>Szczegóły dla @Model.ImieNazwisko</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Dodaj">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                
+                    <div class="form-group">
+                        <label asp-for="ImieNazwisko" class="control-label"></label>
+                          <input asp-for="ImieNazwisko" class="form-control" readonly>
+                          <span asp-validation-for="ImieNazwisko" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RokUrodzenia" class="control-label"></label>
+                          <input asp-for="RokUrodzenia" class="form-control" readonly>
+                          <span asp-validation-for="RokUrodzenia" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Biografia" class="control-label"></label>
+                          <input asp-for="Biografia" class="form-control" readonly>
+                          <span asp-validation-for="Biografia" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <a class="btn btn-outline-success float-right" asp-action="Edytuj" asp-route-id="@Model.Id">Edytuj</a>
+                        <a class="btn btn-outline-secondary" asp-action="Index">Lista aktorów</a>
+                    </div>
+                 </form>
+            </div>
+        </div> 
+    </div>
+</div>
