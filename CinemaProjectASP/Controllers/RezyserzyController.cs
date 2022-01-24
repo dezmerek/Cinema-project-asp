@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace CinemaProjectASP.Controllers
 {
-    public class RezyserController : Controller
+    public class RezyserzyController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public RezyserController(ApplicationDbContext context)
+        public RezyserzyController(ApplicationDbContext context)
         {
             _context = context;
         }

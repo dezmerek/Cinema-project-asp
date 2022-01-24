@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace CinemaProjectASP.Controllers
 {
-    public class AktorController : Controller
+    public class AktorzyController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public AktorController(ApplicationDbContext context)
+        public AktorzyController(ApplicationDbContext context)
         {
             _context = context;
         }

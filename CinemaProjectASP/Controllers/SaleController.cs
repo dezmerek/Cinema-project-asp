@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace CinemaProjectASP.Controllers
 {
-    public class SalaController : Controller
+    public class SaleController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public SalaController(ApplicationDbContext context)
+        public SaleController(ApplicationDbContext context)
         {
             _context = context;
         }
