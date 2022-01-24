@@ -1,4 +1,5 @@
 ﻿using CinemaProjectASP.Data;
+using CinemaProjectASP.Data.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -8,16 +9,16 @@ namespace CinemaProjectASP.Controllers
 {
     public class RezyserzyController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IRezyserzyService _service;
 
-        public RezyserzyController(ApplicationDbContext context)
+        public RezyserzyController(IRezyserzyService service)
         {
-            _context = context;
+            _service = service;
         }
 
         public async Task<IActionResult> Index()
         {
-            var allRezyserzy = await _context.Rezyserzy.ToListAsync();
+            var allRezyserzy = await _service.GetAllAsync();
             return View(allRezyserzy);
         }
     }
