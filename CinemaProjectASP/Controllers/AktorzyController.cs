@@ -44,8 +44,27 @@ namespace CinemaProjectASP.Controllers
         {
             var aktorSzczegoly = await _service.GetByIdAsync(id);
 
-            if (aktorSzczegoly == null) return View("Empty");
+            if (aktorSzczegoly == null) return View("NotFound");
             return View(aktorSzczegoly);
+        }
+
+        //Get: Aktorzy/Edytuj
+        public async Task<IActionResult> Edytuj(int id)
+        {
+            var aktorSzczegoly = await _service.GetByIdAsync(id);
+            if (aktorSzczegoly == null) return View("NotFound");
+            return View(aktorSzczegoly);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edytuj(int id, [Bind("Id, ImieNazwisko, RokUrodzenia, Biografia")] Aktor aktor)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(aktor);
+            }
+            await _service.UpdateAsync(id, aktor);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
