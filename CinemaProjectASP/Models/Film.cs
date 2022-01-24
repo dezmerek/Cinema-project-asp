@@ -15,7 +15,7 @@ namespace CinemaProjectASP.Models
         public string Nazwa { get; set; }
         public string Opis { get; set; }
         public double Cena { get; set; }
-        public DateTime OdKiey { get; set; }
+        public DateTime OdKiedy { get; set; }
         public DateTime DoKiedy { get; set; }
         public FilmKategoria FilmKategoria { get; set; }
 

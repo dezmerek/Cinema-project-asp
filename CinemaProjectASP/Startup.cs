@@ -1,3 +1,4 @@
+using CinemaProject.Data;
 using CinemaProjectASP.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -57,6 +58,9 @@ namespace CinemaProjectASP
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            //dane bazy
+            ApplicationDbInitializer.Seed(app);
         }
     }
 }
