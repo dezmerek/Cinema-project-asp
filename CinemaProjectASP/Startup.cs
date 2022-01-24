@@ -1,5 +1,6 @@
 using CinemaProject.Data;
 using CinemaProjectASP.Data;
+using CinemaProjectASP.Data.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +29,9 @@ namespace CinemaProjectASP
         {
             //DbContext konfiguracja
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
+
+            //Services konfiguracja
+            services.AddScoped<IAktorzyService, AktorzyService>();
 
             services.AddControllersWithViews();
         }
