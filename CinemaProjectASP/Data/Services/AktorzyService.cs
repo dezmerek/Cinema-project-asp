@@ -27,17 +27,7 @@ namespace CinemaProjectASP.Data.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Aktor>> GetAllAsync()
-        {
-            var result = await _context.Aktorzy.ToListAsync();
-            return result;
-        }
 
-        public async Task<Aktor> GetByIdAsync(int id)
-        {
-            var result = await _context.Aktorzy.FirstOrDefaultAsync(n=>n.Id==id);
-            return result;
-        }
 
         public async Task<Aktor> UpdateAsync(int id, Aktor nowyAktor)
         {
