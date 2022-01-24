@@ -9,7 +9,9 @@ namespace CinemaProjectASP.Models
         [HiddenInput]
         [Key]
         public int Id { get; set; }
+        [Display(Name = "Nazwa")]
         public string Nazwa { get; set; }
+        [Display(Name = "Opis")]
         public string Opis { get; set; }
 
         //relacja
