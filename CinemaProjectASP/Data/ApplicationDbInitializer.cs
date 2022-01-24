@@ -59,9 +59,9 @@ namespace CinemaProject.Data
                     {
                     new Aktor()
                     {
-                        ImieNazwisko = "Aktor 1",
-                        RokUrodzenia = 2001,
-                        Biografia = "Aktor Aktor",
+                        ImieNazwisko = "Mark Wahlberg",
+                        RokUrodzenia = 1971,
+                        Biografia = "Mark Robert Michael Wahlberg, znany również jako Marky Mark – amerykański aktor, producent filmowy, piosenkarz i model.",
                     },
                     new Aktor()
                     {
@@ -98,9 +98,9 @@ namespace CinemaProject.Data
                     {
                     new Rezyser()
                     {
-                        ImieNazwisko = "Rezyser 1",
-                        RokUrodzenia = 2001,
-                        Biografia = "Rezyser Rezyser",
+                        ImieNazwisko = "Ruben Fleischer",
+                        RokUrodzenia = 1974,
+                        Biografia = "Ruben Fleischer amerykański reżyser, urodzony w 1974, znany z Venom, Zombieland, Gangster Squad. Pogromcy mafii.",
                     },
                     new Rezyser()
                     {

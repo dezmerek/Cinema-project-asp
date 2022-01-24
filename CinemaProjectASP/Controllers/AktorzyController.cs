@@ -16,7 +16,7 @@ namespace CinemaProjectASP.Controllers
         public IActionResult Index()
         {
             var data = _context.Aktorzy.ToList();
-            return View();
+            return View(data);
         }
     }
 }
