@@ -1,4 +1,3 @@
-using CinemaProject.Data;
 using CinemaProjectASP.Data;
 using CinemaProjectASP.Data.Services;
 using Microsoft.AspNetCore.Builder;
@@ -32,6 +31,8 @@ namespace CinemaProjectASP
 
             //Services konfiguracja
             services.AddScoped<IAktorzyService, AktorzyService>();
+            services.AddScoped<IRezyserzyService, RezyserzyService>();
+
 
             services.AddControllersWithViews();
         }
