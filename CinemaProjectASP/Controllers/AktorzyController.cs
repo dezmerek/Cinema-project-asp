@@ -20,5 +20,11 @@ namespace CinemaProjectASP.Controllers
             var data = await _service.GetAll();
             return View(data);
         }
+
+        //Get: Aktorzy/Dodaj
+        public IActionResult Dodaj()
+        {
+            return View();
+        }
     }
 }
