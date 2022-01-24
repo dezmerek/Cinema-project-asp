@@ -16,7 +16,8 @@ namespace CinemaProjectASP.Data.Services
 
         public void Add(Aktor aktor)
         {
-            throw new System.NotImplementedException();
+            _context.Aktorzy.Add(aktor);
+            _context.SaveChanges();
         }
 
         public void Delete(int id)
