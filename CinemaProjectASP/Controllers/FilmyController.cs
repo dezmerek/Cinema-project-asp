@@ -17,7 +17,7 @@ namespace CinemaProjectASP.Controllers
         public async Task<IActionResult> Index()
         {
             var allFilmy = await _context.Filmy.ToListAsync();
-            return View();
+            return View(allFilmy);
         }
     }
 }
