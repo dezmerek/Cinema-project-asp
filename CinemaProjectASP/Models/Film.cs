@@ -20,7 +20,7 @@ namespace CinemaProjectASP.Models
         public FilmKategoria FilmKategoria { get; set; }
 
         //relacja
-        public List<Aktor_Film> Aktors_Films { get; set; }
+        public List<Aktor_Film> Aktorzy_Filmy { get; set; }
 
         //sala
         public int SalaId { get; set; }

@@ -14,6 +14,6 @@ namespace CinemaProjectASP.Models
         public string Biografia { get; set; }
 
         //relacja
-        public List<Aktor_Film> Aktors_Films { get; set; }
+        public List<Aktor_Film> Aktorzy_Filmy { get; set; }
     }
 }

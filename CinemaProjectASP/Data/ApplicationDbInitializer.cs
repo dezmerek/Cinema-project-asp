@@ -19,9 +19,9 @@ namespace CinemaProject.Data
                 context.Database.EnsureCreated();
 
                 //sala
-                if (!context.Salas.Any())
+                if (!context.Sale.Any())
                 {
-                    context.Salas.AddRange(new List<Sala>()
+                    context.Sale.AddRange(new List<Sala>()
                     {
                     new Sala()
                     {
@@ -53,9 +53,9 @@ namespace CinemaProject.Data
                 }
 
                 //aktorzy
-                if (!context.Aktors.Any())
+                if (!context.Aktorzy.Any())
                 {
-                    context.Aktors.AddRange(new List<Aktor>()
+                    context.Aktorzy.AddRange(new List<Aktor>()
                     {
                     new Aktor()
                     {
@@ -92,9 +92,9 @@ namespace CinemaProject.Data
                 }
 
                 //rezyserowie
-                if (!context.Rezysers.Any())
+                if (!context.Rezyserzy.Any())
                 {
-                    context.Rezysers.AddRange(new List<Rezyser>()
+                    context.Rezyserzy.AddRange(new List<Rezyser>()
                     {
                     new Rezyser()
                     {
@@ -131,9 +131,9 @@ namespace CinemaProject.Data
                 }
 
                 //filmy
-                if (!context.Films.Any())
+                if (!context.Filmy.Any())
                 {
-                    context.Films.AddRange(new List<Film>()
+                    context.Filmy.AddRange(new List<Film>()
                     {
                         new Film()
                         {
@@ -206,9 +206,9 @@ namespace CinemaProject.Data
                 }
 
                 //aktorzy & filmy
-                if (!context.Aktors_Films.Any())
+                if (!context.Aktorzy_Filmy.Any())
                 {
-                    context.Aktors_Films.AddRange(new List<Aktor_Film>()
+                    context.Aktorzy_Filmy.AddRange(new List<Aktor_Film>()
                    {
                         new Aktor_Film()
                         {

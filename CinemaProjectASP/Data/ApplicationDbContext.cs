@@ -16,17 +16,17 @@ namespace CinemaProjectASP.Data
                 am.FilmId
             });
 
-            modelBuilder.Entity<Aktor_Film>().HasOne(m => m.Film).WithMany(am => am.Aktors_Films).HasForeignKey(m => m.FilmId);
-            modelBuilder.Entity<Aktor_Film>().HasOne(m => m.Aktor).WithMany(am => am.Aktors_Films).HasForeignKey(m => m.AktorId);
+            modelBuilder.Entity<Aktor_Film>().HasOne(m => m.Film).WithMany(am => am.Aktorzy_Filmy).HasForeignKey(m => m.FilmId);
+            modelBuilder.Entity<Aktor_Film>().HasOne(m => m.Aktor).WithMany(am => am.Aktorzy_Filmy).HasForeignKey(m => m.AktorId);
 
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<Aktor> Aktors { get; set; }
-        public DbSet<Film> Films { get; set; }
-        public DbSet<Aktor_Film> Aktors_Films { get; set; }
-        public DbSet<Sala> Salas { get; set; }
-        public DbSet<Rezyser> Rezysers { get; set; }
+        public DbSet<Aktor> Aktorzy { get; set; }
+        public DbSet<Film> Filmy { get; set; }
+        public DbSet<Aktor_Film> Aktorzy_Filmy { get; set; }
+        public DbSet<Sala> Sale { get; set; }
+        public DbSet<Rezyser> Rezyserzy { get; set; }
 
     }
 }

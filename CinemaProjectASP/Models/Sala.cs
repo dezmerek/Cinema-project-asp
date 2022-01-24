@@ -13,6 +13,6 @@ namespace CinemaProjectASP.Models
         public string Opis { get; set; }
 
         //relacja
-        public List<Film> Films { get; set; }
+        public List<Film> Filmy { get; set; }
     }
 }
