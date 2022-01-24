@@ -21,5 +21,13 @@ namespace CinemaProjectASP.Controllers
             var allRezyserzy = await _service.GetAllAsync();
             return View(allRezyserzy);
         }
+
+        //GET: Rezyser/Szczegoly/1
+        public async Task<IActionResult> Szczegoly(int id)
+        {
+            var rezyserSzczegoly = await _service.GetByIdAsync(id);
+            if (rezyserSzczegoly == null) return View("NotFound");
+            return View(rezyserSzczegoly);
+        }
     }
 }
