@@ -24,6 +24,19 @@ namespace CinemaProjectASP.Controllers
             return View(allFilmy);
         }
 
+        public async Task<IActionResult> Filtr(string szukanaFraza)
+        {
+            var wszystkieFilmy = await _service.GetAllAsync(n => n.Sala);
+
+            if (!string.IsNullOrEmpty(szukanaFraza))
+            {
+                var filteredResult = wszystkieFilmy.Where(n => n.Nazwa.Contains(szukanaFraza) || n.Opis.Contains(szukanaFraza)).ToList();
+                return View("Index",filteredResult);
+            }
+
+            return View("Index", wszystkieFilmy);
+        }
+
         //GET: Filmy/Szczegoly/1
         public async Task<IActionResult> Szczegoly(int id)
         {
