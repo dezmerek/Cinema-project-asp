@@ -44,6 +44,41 @@ namespace CinemaProjectASP.Data.Services
             await _context.SaveChangesAsync();
         }
 
+        public async Task EdytujNowyFilmAsync(NowyFilm dane)
+        {
+            var dbFilm = await _context.Filmy.FirstOrDefaultAsync(n => n.Id == dane.Id);
+
+            if(dbFilm != null)
+            {
+                dbFilm.Nazwa = dane.Nazwa;
+                dbFilm.Opis = dane.Opis;
+                dbFilm.Cena = dane.Cena;
+                dbFilm.SalaId = dane.SalaId;
+                dbFilm.OdKiedy = dane.OdKiedy;
+                dbFilm.DoKiedy = dane.DoKiedy;
+                dbFilm.FilmKategoria = dane.FilmKategoria;
+                dbFilm.RezyserId = dane.RezyserId;
+                await _context.SaveChangesAsync();
+            }
+
+            //Usuwanie utworzonego autora
+            var utworzonyAktorDb=_context.Aktorzy_Filmy.Where(n=>n.FilmId == dane.Id).ToList();
+            _context.Aktorzy_Filmy.RemoveRange(utworzonyAktorDb);
+            await _context.SaveChangesAsync();
+
+            //Dodanie do filmu aktora
+            foreach (var AktorId in dane.AktorIds)
+            {
+                var nowyAktorFilm = new Aktor_Film()
+                {
+                    FilmId = dane.Id,
+                    AktorId = AktorId
+                };
+                await _context.Aktorzy_Filmy.AddAsync(nowyAktorFilm);
+            }
+            await _context.SaveChangesAsync();
+        }
+
         public async Task<Film> GetMovieByIdAsync(int id)
         {
             var filmSzczegoly = await _context.Filmy

@@ -31,7 +31,7 @@ namespace CinemaProjectASP.Controllers
             return View(filmSzczegoly);
         }
 
-        //GET: Filmy/Create
+        //GET: Filmy/Dodaj
         public async Task<IActionResult> Dodaj()
         {
             var filmDane = await _service.GetNewMovieDropdownsValues();
@@ -58,6 +58,54 @@ namespace CinemaProjectASP.Controllers
             }
 
             await _service.DodajNowyFilmAsync(film);
+            return RedirectToAction(nameof(Index));
+        }
+
+        //GET: Filmy/Edytuj/1
+        public async Task<IActionResult> Edytuj(int id)
+        {
+            var filmSzczegoly = await _service.GetMovieByIdAsync(id);
+            if (filmSzczegoly == null) return View("NotFound");
+
+            var response = new NowyFilm()
+            {
+                Id = filmSzczegoly.Id,
+                Nazwa = filmSzczegoly.Nazwa,
+                Opis = filmSzczegoly.Opis,
+                Cena = filmSzczegoly.Cena,
+                OdKiedy = filmSzczegoly.OdKiedy,
+                DoKiedy = filmSzczegoly.DoKiedy,
+                FilmKategoria= filmSzczegoly.FilmKategoria,
+                SalaId = filmSzczegoly.SalaId,
+                RezyserId = filmSzczegoly.RezyserId,
+                AktorIds = filmSzczegoly.Aktorzy_Filmy.Select(n => n.AktorId).ToList(),
+            };
+
+            var movieDropdownsData = await _service.GetNewMovieDropdownsValues();
+            ViewBag.Sale = new SelectList(movieDropdownsData.Sale, "Id", "Nazwa");
+            ViewBag.Rezyserzy = new SelectList(movieDropdownsData.Rezyserzy, "Id", "ImieNazwisko");
+            ViewBag.Aktorzy = new SelectList(movieDropdownsData.Aktorzy, "Id", "ImieNazwisko");
+
+            return View(response);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edytuj(int id, NowyFilm film)
+        {
+            if (id != film.Id) return View("NotFound");
+
+            if (!ModelState.IsValid)
+            {
+                var movieDropdownsData = await _service.GetNewMovieDropdownsValues();
+
+                ViewBag.Sale = new SelectList(movieDropdownsData.Sale, "Id", "Name");
+                ViewBag.Rezyserzy = new SelectList(movieDropdownsData.Rezyserzy, "Id", "FullName");
+                ViewBag.Aktorzy = new SelectList(movieDropdownsData.Aktorzy, "Id", "FullName");
+
+                return View(film);
+            }
+
+            await _service.EdytujNowyFilmAsync(film);
             return RedirectToAction(nameof(Index));
         }
     }

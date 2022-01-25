@@ -10,6 +10,8 @@ namespace CinemaProjectASP.Models
 {
     public class NowyFilm
     {
+        public int Id { get; set; }
+
         [Required(ErrorMessage ="Wprowadz dane")]
         [Display(Name = "Nazwa filmu")]
         public string Nazwa { get; set; }

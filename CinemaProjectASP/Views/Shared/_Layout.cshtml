@@ -34,6 +34,12 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Filmy" asp-action="Index">Filmy</a>
                         </li>
                     </ul>
+
+                    <form class="form-inline my-2 my-lg-0" asp-controller="Movies" asp-action="Filter" style="padding-right: 25px;">
+                        <input name="searchString" type="text" class="form-control" placeholder="Wyszukaj film..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Szukaj</button>
+                    </form>
+
                 </div>
             </div>
         </nav>

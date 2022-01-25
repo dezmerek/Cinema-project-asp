@@ -10,5 +10,6 @@ namespace CinemaProjectASP.Data.Services
         Task<Film> GetMovieByIdAsync(int id);
         Task<NowyFilmLista> GetNewMovieDropdownsValues();
         Task DodajNowyFilmAsync(NowyFilm dane);
+        Task EdytujNowyFilmAsync(NowyFilm dane);
     }
 }
