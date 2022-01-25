@@ -1,4 +1,5 @@
 ﻿using CinemaProjectASP.Data;
+using CinemaProjectASP.Data.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -8,16 +9,16 @@ namespace CinemaProjectASP.Controllers
 {
     public class FilmyController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IFilmyService _service;
 
-        public FilmyController(ApplicationDbContext context)
+        public FilmyController(IFilmyService service)
         {
-            _context = context;
+            _service = service;
         }
 
         public async Task<IActionResult> Index()
         {
-            var allFilmy = await _context.Filmy.Include(n=>n.Sala).OrderByDescending(n=>n.DoKiedy).ToListAsync();
+            var allFilmy = await _service.GetAllAsync(n=>n.Sala);
             return View(allFilmy);
         }
     }

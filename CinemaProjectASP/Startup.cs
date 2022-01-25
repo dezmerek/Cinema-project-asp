@@ -33,6 +33,7 @@ namespace CinemaProjectASP
             services.AddScoped<IAktorzyService, AktorzyService>();
             services.AddScoped<IRezyserzyService, RezyserzyService>();
             services.AddScoped<ISaleService, SaleService>();
+            services.AddScoped<IFilmyService, FilmyService>();
 
             services.AddControllersWithViews();
         }

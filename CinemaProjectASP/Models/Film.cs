@@ -1,4 +1,5 @@
 ﻿using CinemaProjectASP.Data;
+using CinemaProjectASP.Data.Base;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CinemaProjectASP.Models
 {
-    public class Film
+    public class Film:IEntityBase
     {
         [HiddenInput]
         [Key]
