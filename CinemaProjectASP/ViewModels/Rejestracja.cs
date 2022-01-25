@@ -9,9 +9,11 @@ namespace CinemaProjectASP.ViewModels
         public string FullName { get; set; }
 
         [Display(Name = "Adres e-mail")]
+        [RegularExpression(".+\\@.+\\.[a-z]{2,3}", ErrorMessage = "Niepoprawny adres email! ")]
         [Required(ErrorMessage = "Adres e-mail jest wymagany")]
         public string EmailAddress { get; set; }
 
+        [Display(Name = "Hasło (minimum 6 znaków, 1 duża, 1 mała, 1 liczba, 1 znak specjalny)")]
         [Required(ErrorMessage = "Hasło jest wymagane")]
         [DataType(DataType.Password)]
         public string Password { get; set; }

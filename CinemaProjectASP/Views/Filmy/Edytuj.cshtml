@@ -82,3 +82,11 @@
 
     </div>
 </div>
+
+@if(User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+<div style="position: fixed; right: 50px; bottom: 100px;" class="text-white">
+    <a asp-controller="Aktorzy" asp-action="Filmy" class="btn btn-success"> 
+    <i class="bi bi-plus-circle"></i>Dodaj</a>
+</div>
+}

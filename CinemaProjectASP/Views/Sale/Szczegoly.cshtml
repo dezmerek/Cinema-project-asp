@@ -25,7 +25,10 @@
                           <span asp-validation-for="Opis" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <a class="btn btn-outline-success float-right" asp-action="Edytuj" asp-route-id="@Model.Id">Edytuj</a>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <a class="btn btn-outline-success float-right" asp-action="Edytuj" asp-route-id="@Model.Id">Edytuj</a>
+                        }
                         <a class="btn btn-outline-secondary" asp-action="Index">Lista sal</a>
                     </div>
                  </form>

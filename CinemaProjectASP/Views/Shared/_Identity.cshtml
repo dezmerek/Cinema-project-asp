@@ -1,0 +1,28 @@
+﻿@inject UserManager<ApplicationUser> UserManager; 
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <a class="btn btn-outline-success my-2 my-sm-0" asp-controller="Konto" asp-action="Logowanie">Zaloguj się</a>
+
+    <span style="padding: 5px;"></span>
+
+    <a class="btn btn-outline-primary my-2 my-sm-0" asp-controller="Konto" asp-action="Rejestracja">Rejestracja</a>
+}
+else
+{
+
+    @*Profil uzytkownika*@
+    <div>
+        <button class="btn btn-outline-success" type="button" id="profile-btn" aria-expanded="false"> Witaj @UserManager.GetUserName(User)
+        </button>
+            @if (User.IsInRole("Admin"))
+            {
+                <a class="btn btn-outline-primary my-2 my-sm-0" asp-controller="Konto" asp-action="Uzytkownicy">Lista użytkowników</a>
+            }
+    </div>
+    <span style="padding: 5px;"></span>
+    <form asp-controller="Konto" asp-action="Wyloguj">
+        <button class="btn btn-outline-danger my-2 my-sm-0">Wyloguj
+        </button>
+    </form>
+}
