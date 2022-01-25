@@ -75,5 +75,11 @@ namespace CinemaProjectASP.Controllers
             return View("RejestracjaZakonczona");
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Wyloguj()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Filmy");
+        }
     }
 }
