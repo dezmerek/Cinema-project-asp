@@ -1,4 +1,5 @@
 ﻿using CinemaProjectASP.Data;
+using CinemaProjectASP.Data.Static;
 using CinemaProjectASP.Models;
 using CinemaProjectASP.ViewModels;
 using Microsoft.AspNetCore.Identity;
@@ -47,6 +48,32 @@ namespace CinemaProjectASP.Controllers
         }
 
         public IActionResult Rejestracja() => View(new Rejestracja());
+
+        [HttpPost]
+        public async Task<IActionResult> Rejestracja(Rejestracja rejestracja)
+        {
+            if (!ModelState.IsValid) return View(rejestracja);
+
+            var user = await _userManager.FindByEmailAsync(rejestracja.EmailAddress);
+            if (user != null)
+            {
+                TempData["Error"] = "Ten adres e-mail jest już w użyciu";
+                return View(rejestracja);
+            }
+
+            var newUser = new ApplicationUser()
+            {
+                FullName = rejestracja.FullName,
+                Email = rejestracja.EmailAddress,
+                UserName = rejestracja.EmailAddress
+            };
+            var newUserResponse = await _userManager.CreateAsync(newUser, rejestracja.Password);
+
+            if (newUserResponse.Succeeded)
+                await _userManager.AddToRoleAsync(newUser, UserRoles.User);
+
+            return View("RejestracjaZakonczona");
+        }
 
     }
 }
