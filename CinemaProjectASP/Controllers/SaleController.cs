@@ -43,5 +43,22 @@ namespace CinemaProjectASP.Controllers
             if (saleSzczegoly == null) return View("NotFound");
             return View(saleSzczegoly);
         }
+
+        //GET: Sale/Edytuj/1
+
+        public async Task<IActionResult> Edytuj(int id)
+        {
+            var saleSzczegoly = await _service.GetByIdAsync(id);
+            if (saleSzczegoly == null) return View("NotFound");
+            return View(saleSzczegoly);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edytuj(int id, [Bind("Id, Nazwa, Opis")] Sala sala)
+        {
+            if (!ModelState.IsValid) return View(sala);
+            await _service.UpdateAsync(id, sala);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
