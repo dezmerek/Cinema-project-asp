@@ -28,15 +28,20 @@
                             <p class="card-text"><b>Od kiedy: </b>@item.OdKiedy.ToString("dd MMMM yyyy")</p>
                             <p class="card-text"><b>Do kiedy: </b>@item.DoKiedy.ToString("dd MMMM yyyy")</p>
                             <p class="card-text">
-                                <b>Status: </b>
-                                @if (DateTime.Now >= item.OdKiedy && DateTime.Now <= item.DoKiedy)
-                                {
-                                    <span class="badge bg-success text-white">Dostępny</span>
-                                } else
-                                {
-                                    <span class="badge bg-primary text-white">Niedostępny</span>
-                                }
-                            </p>
+                            <b>Status: </b>
+                            @if (DateTime.Now >= item.OdKiedy && DateTime.Now <= item.DoKiedy)
+                            {
+                                <span class="badge bg-success text-white">Dostępny</span>
+                            }
+                            else if (DateTime.Now > item.DoKiedy)
+                            {
+                                <span class="badge bg-danger text-white">Niedostępny</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-primary text-white">Nadchodzi</span>
+                            }
+                        </p>
 
                         </div>
                     </div>
@@ -46,7 +51,7 @@
                                 <a class="btn btn-outline-primary float-right" asp-action="Szczegoly" asp-route-id="@item.Id">
                                     <i class="bi bi-eye-fill"></i>Szczegóły
                                 </a>
-                                <a class="btn btn-success text-white"><i class="bi bi-cart-plus"></i>Kup bilet</a>
+                                <a class="btn btn-success text-white" class="btn btn-primary" asp-controller="Zamowienie" asp-action="Borrowed">Kup bilet</a>
                             </p>
                         </div>
                     </div>
