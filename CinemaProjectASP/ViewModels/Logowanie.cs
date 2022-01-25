@@ -8,7 +8,7 @@ namespace CinemaProjectASP.ViewModels
         [Required(ErrorMessage = "Adres e-mail jest wymagany")]
         public string EmailAddress { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Hasło jest wymagane")]
         [Display(Name = "Hasło")]
         [DataType(DataType.Password)]
         public string Password { get; set; }

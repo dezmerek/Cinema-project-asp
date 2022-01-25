@@ -46,5 +46,7 @@ namespace CinemaProjectASP.Controllers
             return View(logowanie);
         }
 
+        public IActionResult Rejestracja() => View(new Rejestracja());
+
     }
 }
