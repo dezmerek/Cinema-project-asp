@@ -45,5 +45,26 @@ namespace CinemaProjectASP.Controllers
             await _service.AddAsync(rezyser);
             return RedirectToAction(nameof(Index));
         }
+
+        //GET: Rezyserzy/Edytuj
+        public async Task<IActionResult> Edytuj(int id)
+        {
+            var rezyserzySzczegoly=await _service.GetByIdAsync(id);
+            if(rezyserzySzczegoly==null) return View("NotFound");
+            return View(rezyserzySzczegoly);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edytuj(int id, [Bind("Id, ImieNazwisko, RokUrodzenia, Biografia")] Rezyser rezyser)
+        {
+            if (!ModelState.IsValid) return View(rezyser);
+
+            if(id==rezyser.Id)
+            {
+                await _service.UpdateAsync(id, rezyser);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(rezyser);
+        }
     }
 }
