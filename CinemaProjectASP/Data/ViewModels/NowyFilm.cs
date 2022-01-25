@@ -17,7 +17,7 @@ namespace CinemaProjectASP.Models
         [Display(Name = "Opis filmu")]
         public string Opis { get; set; }
         [Required(ErrorMessage = "Wprowadz cene")]
-        [Display(Name = "Cena za bilet (xx,xx)")]
+        [Display(Name = "Cena za bilet (xx)")]
         public double Cena { get; set; }
         [Required(ErrorMessage = "Wybierz od kiedy")]
         [Display(Name = "Od kiedy")]

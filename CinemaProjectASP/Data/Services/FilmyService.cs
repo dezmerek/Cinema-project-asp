@@ -15,6 +15,35 @@ namespace CinemaProjectASP.Data.Services
             _context = context;
         }
 
+        public async Task DodajNowyFilmAsync(NowyFilm dane)
+        {
+            var nowyFilm = new Film()
+            {
+                Nazwa = dane.Nazwa,
+                Opis = dane.Opis,
+                Cena = dane.Cena,
+                SalaId = dane.SalaId,
+                OdKiedy = dane.OdKiedy,
+                DoKiedy = dane.DoKiedy,
+                FilmKategoria = dane.FilmKategoria,
+                RezyserId = dane.RezyserId
+            };
+            await _context.Filmy.AddAsync(nowyFilm);
+            await _context.SaveChangesAsync();
+
+            //Dodanie do filmu aktora
+            foreach (var AktorId in dane.AktorIds)
+            {
+                var nowyAktorFilm = new Aktor_Film()
+                {
+                    FilmId = nowyFilm.Id,
+                    AktorId = AktorId
+                };
+                await _context.Aktorzy_Filmy.AddAsync(nowyAktorFilm);
+            }
+            await _context.SaveChangesAsync();
+        }
+
         public async Task<Film> GetMovieByIdAsync(int id)
         {
             var filmSzczegoly = await _context.Filmy

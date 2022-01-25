@@ -1,5 +1,6 @@
 ﻿using CinemaProjectASP.Data;
 using CinemaProjectASP.Data.Services;
+using CinemaProjectASP.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -40,6 +41,24 @@ namespace CinemaProjectASP.Controllers
             ViewBag.Aktorzy = new SelectList(filmDane.Aktorzy, "Id","ImieNazwisko");
 
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Dodaj(NowyFilm film)
+        {
+            if(!ModelState.IsValid)
+            {
+                var filmDane = await _service.GetNewMovieDropdownsValues();
+
+                ViewBag.Sale = new SelectList(filmDane.Sale, "Id", "Nazwa");
+                ViewBag.Rezyserzy = new SelectList(filmDane.Rezyserzy, "Id", "ImieNazwisko");
+                ViewBag.Aktorzy = new SelectList(filmDane.Aktorzy, "Id", "ImieNazwisko");
+
+                return View(film);
+            }
+
+            await _service.DodajNowyFilmAsync(film);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
