@@ -4,6 +4,7 @@ using CinemaProjectASP.Models;
 using CinemaProjectASP.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace CinemaProjectASP.Controllers
@@ -18,6 +19,12 @@ namespace CinemaProjectASP.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
             _context = context;
+        }
+
+        public async Task<IActionResult> Uzytkownicy()
+        {
+            var uzytkownicy = await _context.Users.ToListAsync();
+            return View(uzytkownicy);
         }
 
         public IActionResult Logowanie() => View(new Logowanie());
