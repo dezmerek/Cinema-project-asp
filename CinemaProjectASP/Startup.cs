@@ -32,7 +32,7 @@ namespace CinemaProjectASP
             //Services konfiguracja
             services.AddScoped<IAktorzyService, AktorzyService>();
             services.AddScoped<IRezyserzyService, RezyserzyService>();
-
+            services.AddScoped<ISaleService, SaleService>();
 
             services.AddControllersWithViews();
         }

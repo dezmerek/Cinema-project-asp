@@ -1,4 +1,5 @@
 ﻿using CinemaProjectASP.Data;
+using CinemaProjectASP.Data.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
@@ -7,16 +8,16 @@ namespace CinemaProjectASP.Controllers
 {
     public class SaleController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ISaleService _service;
 
-        public SaleController(ApplicationDbContext context)
+        public SaleController(ISaleService service)
         {
-            _context = context;
+            _service = service;
         }
 
         public async Task<IActionResult> Index()
         {
-            var allSale = await _context.Sale.ToListAsync();
+            var allSale = await _service.GetAllAsync();
             return View(allSale);
         }
     }
