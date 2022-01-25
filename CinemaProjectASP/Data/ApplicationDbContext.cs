@@ -28,9 +28,5 @@ namespace CinemaProjectASP.Data
         public DbSet<Sala> Sale { get; set; }
         public DbSet<Rezyser> Rezyserzy { get; set; }
 
-        //Zamowienie powiazane tabele
-        public DbSet<Zamowienie> Zamowienia { get; set; }
-        public DbSet<ZamowieniePrzedmiot> zamowienionePrzedmioty { get; set; }
-
     }
 }
