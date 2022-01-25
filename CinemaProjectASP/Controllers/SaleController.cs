@@ -39,18 +39,17 @@ namespace CinemaProjectASP.Controllers
         //GET: Sale/Szczegoly/1
         public async Task<IActionResult> Szczegoly(int id)
         {
-            var saleSzczegoly = await _service.GetByIdAsync(id);
-            if (saleSzczegoly == null) return View("NotFound");
-            return View(saleSzczegoly);
+            var salaSzczegoly = await _service.GetByIdAsync(id);
+            if (salaSzczegoly == null) return View("NotFound");
+            return View(salaSzczegoly);
         }
 
         //GET: Sale/Edytuj/1
-
         public async Task<IActionResult> Edytuj(int id)
         {
-            var saleSzczegoly = await _service.GetByIdAsync(id);
-            if (saleSzczegoly == null) return View("NotFound");
-            return View(saleSzczegoly);
+            var salaSzczegoly = await _service.GetByIdAsync(id);
+            if (salaSzczegoly == null) return View("NotFound");
+            return View(salaSzczegoly);
         }
 
         [HttpPost]
@@ -58,6 +57,24 @@ namespace CinemaProjectASP.Controllers
         {
             if (!ModelState.IsValid) return View(sala);
             await _service.UpdateAsync(id, sala);
+            return RedirectToAction(nameof(Index));
+        }
+
+        //GET: Sale/Usun/1
+        public async Task<IActionResult> Usun(int id)
+        {
+            var salaSzczegoly = await _service.GetByIdAsync(id);
+            if (salaSzczegoly == null) return View("NotFound");
+            return View(salaSzczegoly);
+        }
+
+        [HttpPost, ActionName("Usun")]
+        public async Task<IActionResult> UsunPotwierdzenie(int id)
+        {
+            var salaSzczegoly = await _service.GetByIdAsync(id);
+            if (salaSzczegoly == null) return View("NotFound");
+
+            await _service.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
     }
