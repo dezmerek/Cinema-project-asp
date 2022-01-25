@@ -35,5 +35,13 @@ namespace CinemaProjectASP.Controllers
             await _service.AddAsync(sala);
             return RedirectToAction(nameof(Index));
         }
+
+        //GET: Sale/Szczegoly/1
+        public async Task<IActionResult> Szczegoly(int id)
+        {
+            var saleSzczegoly = await _service.GetByIdAsync(id);
+            if (saleSzczegoly == null) return View("NotFound");
+            return View(saleSzczegoly);
+        }
     }
 }

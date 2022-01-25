@@ -11,8 +11,10 @@ namespace CinemaProjectASP.Models
         [Key]
         public int Id { get; set; }
         [Display(Name = "Nazwa")]
+        [Required(ErrorMessage = "Wprowadz dane")]
         public string Nazwa { get; set; }
         [Display(Name = "Opis")]
+        [Required(ErrorMessage = "Wprowadz dane")]
         public string Opis { get; set; }
 
         //relacja
