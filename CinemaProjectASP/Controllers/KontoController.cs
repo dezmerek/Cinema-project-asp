@@ -19,31 +19,31 @@ namespace CinemaProjectASP.Controllers
             _context = context;
         }
 
-        public IActionResult Login() => View(new Login());
+        public IActionResult Logowanie() => View(new Logowanie());
 
         [HttpPost]
-        public async Task<IActionResult> Login(Login login)
+        public async Task<IActionResult> Logowanie(Logowanie logowanie)
         {
-            if (!ModelState.IsValid) return View(login);
+            if (!ModelState.IsValid) return View(logowanie);
 
-            var user = await _userManager.FindByEmailAsync(login.EmailAddress);
+            var user = await _userManager.FindByEmailAsync(logowanie.EmailAddress);
             if (user != null)
             {
-                var passwordCheck = await _userManager.CheckPasswordAsync(user, login.Password);
+                var passwordCheck = await _userManager.CheckPasswordAsync(user, logowanie.Password);
                 if (passwordCheck)
                 {
-                    var result = await _signInManager.PasswordSignInAsync(user, login.Password, false, false);
+                    var result = await _signInManager.PasswordSignInAsync(user, logowanie.Password, false, false);
                     if (result.Succeeded)
                     {
                         return RedirectToAction("Index", "Filmy");
                     }
                 }
-                TempData["Error"] = "Wrong credentials. Please, try again!";
-                return View(login);
+                TempData["Error"] = "Błędne dane. Proszę spróbuj ponownie";
+                return View(logowanie);
             }
 
-            TempData["Error"] = "Wrong credentials. Please, try again!";
-            return View(login);
+            TempData["Error"] = "Błędne dane. Proszę spróbuj ponownie";
+            return View(logowanie);
         }
 
     }

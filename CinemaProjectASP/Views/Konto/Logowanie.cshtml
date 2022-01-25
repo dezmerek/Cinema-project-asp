@@ -1,5 +1,5 @@
 ﻿@using CinemaProjectASP.ViewModels; 
-@model Login;
+@model Logowanie;
 @{ 
     ViewData["Title"] = "Zaloguj się na swoje konto";
 }
@@ -12,13 +12,13 @@
         @if(TempData["Error"] != null)
             {
                 <div class="col-md-12 alert alert-danger">
-                    <span><b>Sorry!</b> - @TempData["Error"] </span>
+                    <span><b>Błąd!</b> - @TempData["Error"] </span>
                 </div>
             }
 
         <div class="row">
             <div class="col-md-8 offset-2">
-                <form asp-action="Login">
+                <form asp-action="Logowanie">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
                         <label asp-for="EmailAddress" class="control-label"></label>
