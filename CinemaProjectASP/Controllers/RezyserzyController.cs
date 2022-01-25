@@ -46,7 +46,7 @@ namespace CinemaProjectASP.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //GET: Rezyserzy/Edytuj
+        //GET: Rezyserzy/Edytuj/1
         public async Task<IActionResult> Edytuj(int id)
         {
             var rezyserzySzczegoly=await _service.GetByIdAsync(id);
@@ -65,6 +65,24 @@ namespace CinemaProjectASP.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(rezyser);
+        }
+
+        //GET: Rezyserzy/Usun/1
+        public async Task<IActionResult> Usun(int id)
+        {
+            var rezyserzyUsun = await _service.GetByIdAsync(id);
+            if (rezyserzyUsun == null) return View("NotFound");
+            return View(rezyserzyUsun);
+        }
+
+        [HttpPost, ActionName("Usun")]
+        public async Task<IActionResult> UsunPotwierdzenie(int id)
+        {
+            var rezyserzyUsun = await _service.GetByIdAsync(id);
+            if (rezyserzyUsun == null) return View("NotFound");
+
+            await _service.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
