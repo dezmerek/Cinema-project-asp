@@ -1,0 +1,84 @@
+﻿@model NowyFilm
+@using CinemaProjectASP.Data;
+ 
+@{
+    ViewData["Title"] = "Dodawanie nowego filmu";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h4>Dodaj nowy film</h4>
+        </p>
+
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Nazwa" class="control-label"></label>
+                                <input asp-for="Nazwa" class="form-control" />
+                                <span asp-validation-for="Nazwa" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="OdKiedy" class="control-label"></label>
+                                <input asp-for="OdKiedy" type="date" class="form-control" />
+                                <span asp-validation-for="OdKiedy" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DoKiedy" class="control-label"></label>
+                                <input asp-for="DoKiedy" type="date" class="form-control" />
+                                <span asp-validation-for="DoKiedy" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Cena" class="control-label"></label>
+                                <input asp-for="Cena" type="number" class="form-control" />
+                                <span asp-validation-for="Cena" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="SalaId" class="control-label"></label>
+                                <select asp-for="SalaId" class="form-control" asp-items="ViewBag.Sale"></select>
+                                <span asp-validation-for="SalaId" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="FilmKategoria" class="control-label"></label>
+                                <select asp-for="FilmKategoria" class="form-control" asp-items="Html.GetEnumSelectList<FilmKategoria>()"></select>
+                                <span asp-validation-for="FilmKategoria" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="RezyserId" class="control-label"></label>
+                                <select asp-for="RezyserId" class="form-control" asp-items="ViewBag.Rezyserzy"></select>
+                                <span asp-validation-for="RezyserId" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="AktorIds" class="control-label"></label>
+                                <select asp-for="AktorIds" class="form-control"  asp-items="ViewBag.Aktorzy" multiple></select>
+                                <span asp-validation-for="AktorIds" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Opis" class="control-label"></label>
+                                <textarea asp-for="Opis" class="form-control"></textarea>
+                                <span asp-validation-for="Opis" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Dodaj" class="btn btn-outline-success float-right" />
+                        <a class="btn btn-outline-secondary" asp-action="Index">Lista filmów</a>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,6 +1,7 @@
 ﻿using CinemaProjectASP.Data;
 using CinemaProjectASP.Data.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
@@ -27,6 +28,18 @@ namespace CinemaProjectASP.Controllers
         {
             var filmSzczegoly = await _service.GetMovieByIdAsync(id);
             return View(filmSzczegoly);
+        }
+
+        //GET: Filmy/Create
+        public async Task<IActionResult> Dodaj()
+        {
+            var filmDane = await _service.GetNewMovieDropdownsValues();
+
+            ViewBag.Sale = new SelectList(filmDane.Sale, "Id","Nazwa");
+            ViewBag.Rezyserzy = new SelectList(filmDane.Rezyserzy, "Id","ImieNazwisko");
+            ViewBag.Aktorzy = new SelectList(filmDane.Aktorzy, "Id","ImieNazwisko");
+
+            return View();
         }
     }
 }

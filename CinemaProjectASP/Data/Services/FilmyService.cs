@@ -1,6 +1,8 @@
 ﻿using CinemaProjectASP.Data.Base;
+using CinemaProjectASP.Data.ViewModels;
 using CinemaProjectASP.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace CinemaProjectASP.Data.Services
@@ -23,5 +25,19 @@ namespace CinemaProjectASP.Data.Services
 
             return filmSzczegoly;
         }
+
+        public async Task<NowyFilmLista> GetNewMovieDropdownsValues()
+        {
+            var lista = new NowyFilmLista()
+            {
+                Aktorzy = await _context.Aktorzy.OrderBy(n => n.ImieNazwisko).ToListAsync(),
+                Sale = await _context.Sale.OrderBy(n => n.Nazwa).ToListAsync(),
+                Rezyserzy = await _context.Rezyserzy.OrderBy(n => n.ImieNazwisko).ToListAsync()
+            };
+
+            return lista;
+        }
+
+
     }
 }
