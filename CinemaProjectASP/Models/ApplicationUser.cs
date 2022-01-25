@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CinemaProjectASP.Models
 {
-    public class ApplicationUser:IdentityUser
+    public class ApplicationUser : IdentityUser
     {
-        [Display(Name="Imie i Nazwisko")]
-        public string ImieNazwisko { get; set; }
+        [Display(Name = "Full name")]
+        public string FullName { get; set; }
     }
 }

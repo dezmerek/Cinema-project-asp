@@ -111,9 +111,9 @@ namespace CinemaProjectASP.Controllers
             {
                 var movieDropdownsData = await _service.GetNewMovieDropdownsValues();
 
-                ViewBag.Sale = new SelectList(movieDropdownsData.Sale, "Id", "Name");
-                ViewBag.Rezyserzy = new SelectList(movieDropdownsData.Rezyserzy, "Id", "FullName");
-                ViewBag.Aktorzy = new SelectList(movieDropdownsData.Aktorzy, "Id", "FullName");
+                ViewBag.Sale = new SelectList(movieDropdownsData.Sale, "Id", "Nazwa");
+                ViewBag.Rezyserzy = new SelectList(movieDropdownsData.Rezyserzy, "Id", "ImieNazwisko");
+                ViewBag.Aktorzy = new SelectList(movieDropdownsData.Aktorzy, "Id", "ImieNazwisko");
 
                 return View(film);
             }

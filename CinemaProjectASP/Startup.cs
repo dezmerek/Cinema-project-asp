@@ -1,8 +1,11 @@
 using CinemaProjectASP.Data;
 using CinemaProjectASP.Data.Services;
+using CinemaProjectASP.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -35,6 +38,15 @@ namespace CinemaProjectASP
             services.AddScoped<ISaleService, SaleService>();
             services.AddScoped<IFilmyService, FilmyService>();
 
+            //Autoryzacja
+            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddMemoryCache();
+            services.AddSession();
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            });
+
             services.AddControllersWithViews();
         }
 
@@ -56,6 +68,10 @@ namespace CinemaProjectASP
 
             app.UseRouting();
 
+            //autoryzacja
+            app.UseAuthorization();
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -67,6 +83,7 @@ namespace CinemaProjectASP
 
             //dane bazy
             ApplicationDbInitializer.Seed(app);
+            ApplicationDbInitializer.SeedUsersAndRolesAsync(app).Wait();
         }
     }
 }

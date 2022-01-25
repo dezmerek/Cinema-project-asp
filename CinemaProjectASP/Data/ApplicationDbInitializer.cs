@@ -1,10 +1,13 @@
 ﻿using CinemaProjectASP.Data;
+using CinemaProjectASP.Data.Static;
 using CinemaProjectASP.Models;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CinemaProjectASP.Data
 {
@@ -139,7 +142,7 @@ namespace CinemaProjectASP.Data
                         {
                             Nazwa = "Anioły w Ameryce",
                             Opis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur risus non orci volutpat aliquam. Cras nec porttitor sem. Praesent in aliquet est, quis tincidunt.",
-                            Cena = 39.50,
+                            Cena = 19,
                             OdKiedy  = DateTime.Now.AddDays(-10),
                             DoKiedy = DateTime.Now,
                             SalaId = 3,
@@ -150,7 +153,7 @@ namespace CinemaProjectASP.Data
                         {
                             Nazwa = "Fargo",
                             Opis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur risus non orci volutpat aliquam. Cras nec porttitor sem. Praesent in aliquet est, quis tincidunt.",
-                            Cena = 39.50,
+                            Cena = 19,
                             OdKiedy  = DateTime.Now,
                             DoKiedy = DateTime.Now.AddDays(3),
                             SalaId = 1,
@@ -161,7 +164,7 @@ namespace CinemaProjectASP.Data
                         {
                             Nazwa = "Moonfall",
                             Opis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur risus non orci volutpat aliquam. Cras nec porttitor sem. Praesent in aliquet est, quis tincidunt.",
-                            Cena = 39.50,
+                            Cena = 19,
                             OdKiedy  = DateTime.Now,
                             DoKiedy = DateTime.Now.AddDays(7),
                             SalaId = 4,
@@ -172,7 +175,7 @@ namespace CinemaProjectASP.Data
                         {
                             Nazwa = "Ból i blask",
                             Opis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur risus non orci volutpat aliquam. Cras nec porttitor sem. Praesent in aliquet est, quis tincidunt.",
-                            Cena = 39.50,
+                            Cena = 19,
                             OdKiedy  = DateTime.Now.AddDays(-10),
                             DoKiedy = DateTime.Now.AddDays(-5),
                             SalaId = 1,
@@ -183,7 +186,7 @@ namespace CinemaProjectASP.Data
                         {
                             Nazwa = "Maska Zorro",
                             Opis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur risus non orci volutpat aliquam. Cras nec porttitor sem. Praesent in aliquet est, quis tincidunt.",
-                            Cena = 39.50,
+                            Cena = 19,
                             OdKiedy  = DateTime.Now.AddDays(-10),
                             DoKiedy = DateTime.Now.AddDays(-2),
                             SalaId = 5,
@@ -194,7 +197,7 @@ namespace CinemaProjectASP.Data
                         {
                             Nazwa = "Desperado",
                             Opis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur risus non orci volutpat aliquam. Cras nec porttitor sem. Praesent in aliquet est, quis tincidunt.",
-                            Cena = 39.50,
+                            Cena = 19,
                             OdKiedy  = DateTime.Now.AddDays(3),
                             DoKiedy = DateTime.Now.AddDays(20),
                             SalaId = 2,
@@ -305,6 +308,56 @@ namespace CinemaProjectASP.Data
                         },
                         });
                     context.SaveChanges();
+                }
+            }
+        }
+
+        public static async Task SeedUsersAndRolesAsync(IApplicationBuilder applicationBuilder)
+        {
+            using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
+            {
+
+                //Roles
+                var roleManager = serviceScope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+                if (!await roleManager.RoleExistsAsync(UserRoles.Admin))
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
+                if (!await roleManager.RoleExistsAsync(UserRoles.User))
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.User));
+
+                //Users
+                var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+                string adminUserEmail = "admin@cinema.com";
+
+                var adminUser = await userManager.FindByEmailAsync(adminUserEmail);
+                if (adminUser == null)
+                {
+                    var newAdminUser = new ApplicationUser()
+                    {
+                        FullName = "Admin User",
+                        UserName = "admin-user",
+                        Email = adminUserEmail,
+                        EmailConfirmed = true
+                    };
+                    await userManager.CreateAsync(newAdminUser, "Admin@123");
+                    await userManager.AddToRoleAsync(newAdminUser, UserRoles.Admin);
+                }
+
+
+                string appUserEmail = "user@cinema.com";
+
+                var appUser = await userManager.FindByEmailAsync(appUserEmail);
+                if (appUser == null)
+                {
+                    var newAppUser = new ApplicationUser()
+                    {
+                        FullName = "Application User",
+                        UserName = "app-user",
+                        Email = appUserEmail,
+                        EmailConfirmed = true
+                    };
+                    await userManager.CreateAsync(newAppUser, "Admin@123");
+                    await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
                 }
             }
         }
