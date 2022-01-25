@@ -1,0 +1,76 @@
+﻿@model Film
+
+@{
+    ViewData["Title"] = "Movie details";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <div class="card mb-12">
+            <div class="row g-0">
+                <div class="col-md-12">
+                    <div class="card-header text-white bg-info">
+                        <p class="card-text">
+                            <h5 class="card-title">
+                                @Model.Nazwa
+                            </h5>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <p class="card-text">@Model.Opis</p>
+                        <p class="card-text">
+                            <b>Sala: </b>
+                            <a asp-controller="Sale" asp-action="Szczegoly" asp-route-id="@Model.SalaId">
+                                @Model.Sala.Nazwa
+                            </a>
+                        </p>
+                        <p class="card-text">
+                            <b>Reżyser: </b>
+                            <a asp-controller="Rezyserzy" asp-action="Szczegoly" asp-route-id="@Model.RezyserId">
+                                @Model.Rezyser.ImieNazwisko
+                            </a>
+                        </p>
+                        <p class="card-text"><b>Kategoria: </b>@Model.FilmKategoria</p>
+                        <p class="card-text"><b>Od kiedy: </b>@Model.OdKiedy.ToString("dd MMMM yyyy")</p>
+                        <p class="card-text"><b>Do kiedy: </b>@Model.DoKiedy.ToString("dd MMMM yyyy")</p>
+                        <p class="card-text ">
+                            <b>Status: </b>
+                            @if (DateTime.Now >= Model.OdKiedy && DateTime.Now <= Model.DoKiedy)
+                            {
+                                <span class="badge bg-success text-white">Dostępny</span>
+                            }
+                            else if (DateTime.Now > Model.DoKiedy)
+                            {
+                                <span class="badge bg-danger text-white">Wygasł</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-primary text-white">Nadchodzi</span>
+                            }
+                        </p>
+                        <p class="card-text">
+                            <b>Aktorzy: </b>
+                                @foreach (var aktor in Model.Aktorzy_Filmy)
+                                {
+                                        <a asp-controller="Aktorzy" asp-action="Szczegoly" asp-route-id="@aktor.AktorId">@aktor.Aktor.ImieNazwisko</a>
+                                }
+                        </p>
+
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card-footer">
+                        <p class="card-text">
+                            <a class="btn btn-outline-primary float-right" asp-action="Index">
+                                Back to List
+                            </a>
+                            <a class="btn btn-success text-white"><i class="bi bi-cart-plus"></i> Add to Cart (Price @Model.Cena.ToString("c"))</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
