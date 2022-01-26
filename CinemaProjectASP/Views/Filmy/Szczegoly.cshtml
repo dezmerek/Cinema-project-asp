@@ -54,7 +54,7 @@
                             <b>Aktorzy: </b>
                                 @foreach (var aktor in Model.Aktorzy_Filmy)
                                 {
-                                        <a asp-controller="Aktorzy" asp-action="Szczegoly" asp-route-id="@aktor.AktorId">@aktor.Aktor.ImieNazwisko</a>
+                                        <a asp-controller="Aktorzy" asp-action="Szczegoly" asp-route-id="@aktor.AktorId">@aktor.Aktor.ImieNazwisko,</a>
                                 }
                         </p>
 
