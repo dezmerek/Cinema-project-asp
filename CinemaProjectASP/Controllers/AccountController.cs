@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace CinemaProjectASP.Controllers
 {
-    public class KontoController : Controller
+    public class AccountController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ApplicationDbContext _context;
-        public KontoController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ApplicationDbContext context)
+        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ApplicationDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -27,31 +27,31 @@ namespace CinemaProjectASP.Controllers
             return View(uzytkownicy);
         }
 
-        public IActionResult Logowanie() => View(new Logowanie());
+        public IActionResult Login() => View(new Login());
 
         [HttpPost]
-        public async Task<IActionResult> Logowanie(Logowanie logowanie)
+        public async Task<IActionResult> Login(Login login)
         {
-            if (!ModelState.IsValid) return View(logowanie);
+            if (!ModelState.IsValid) return View(login);
 
-            var user = await _userManager.FindByEmailAsync(logowanie.EmailAddress);
+            var user = await _userManager.FindByEmailAsync(login.EmailAddress);
             if (user != null)
             {
-                var passwordCheck = await _userManager.CheckPasswordAsync(user, logowanie.Password);
+                var passwordCheck = await _userManager.CheckPasswordAsync(user, login.Password);
                 if (passwordCheck)
                 {
-                    var result = await _signInManager.PasswordSignInAsync(user, logowanie.Password, false, false);
+                    var result = await _signInManager.PasswordSignInAsync(user, login.Password, false, false);
                     if (result.Succeeded)
                     {
                         return RedirectToAction("Index", "Filmy");
                     }
                 }
                 TempData["Error"] = "Błędne dane. Proszę spróbuj ponownie";
-                return View(logowanie);
+                return View(login);
             }
 
             TempData["Error"] = "Błędne dane. Proszę spróbuj ponownie";
-            return View(logowanie);
+            return View(login);
         }
 
         public IActionResult Rejestracja() => View(new Rejestracja());

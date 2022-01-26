@@ -1,6 +1,8 @@
 ﻿using CinemaProjectASP.Data;
 using CinemaProjectASP.Data.Services;
+using CinemaProjectASP.Data.Static;
 using CinemaProjectASP.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,6 +25,7 @@ namespace CinemaProjectASP.Controllers
         }
 
         //Get: Aktorzy/Dodaj
+        [Authorize(Roles = UserRoles.Admin)]
         public IActionResult Dodaj()
         {
             return View();

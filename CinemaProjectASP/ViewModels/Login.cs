@@ -2,7 +2,7 @@
 
 namespace CinemaProjectASP.ViewModels
 {
-    public class Logowanie
+    public class Login
     {
         [Display(Name = "Adres e-mail")]
         [Required(ErrorMessage = "Adres e-mail jest wymagany")]
