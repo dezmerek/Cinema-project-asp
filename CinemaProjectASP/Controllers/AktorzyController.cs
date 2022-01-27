@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace CinemaProjectASP.Controllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     public class AktorzyController : Controller
     {
         private readonly IAktorzyService _service;
@@ -18,6 +19,7 @@ namespace CinemaProjectASP.Controllers
             _service = service;
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var data = await _service.GetAllAsync();
@@ -43,6 +45,7 @@ namespace CinemaProjectASP.Controllers
         }
 
         //Get: Aktorzy/Szczegoly/1
+        [AllowAnonymous]
         public async Task<IActionResult> Szczegoly(int id)
         {
             var aktorSzczegoly = await _service.GetByIdAsync(id);

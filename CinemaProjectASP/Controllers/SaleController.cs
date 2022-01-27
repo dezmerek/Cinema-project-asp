@@ -1,12 +1,15 @@
 ﻿using CinemaProjectASP.Data;
 using CinemaProjectASP.Data.Services;
+using CinemaProjectASP.Data.Static;
 using CinemaProjectASP.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace CinemaProjectASP.Controllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     public class SaleController : Controller
     {
         private readonly ISaleService _service;
@@ -16,6 +19,7 @@ namespace CinemaProjectASP.Controllers
             _service = service;
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var allSale = await _service.GetAllAsync();
@@ -37,6 +41,7 @@ namespace CinemaProjectASP.Controllers
         }
 
         //GET: Sale/Szczegoly/1
+        [AllowAnonymous]
         public async Task<IActionResult> Szczegoly(int id)
         {
             var salaSzczegoly = await _service.GetByIdAsync(id);

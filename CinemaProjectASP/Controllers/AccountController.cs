@@ -46,11 +46,11 @@ namespace CinemaProjectASP.Controllers
                         return RedirectToAction("Index", "Filmy");
                     }
                 }
-                TempData["Error"] = "Błędne dane. Proszę spróbuj ponownie";
+                TempData["Error"] = "Wrong credentials. Please, try again!";
                 return View(login);
             }
 
-            TempData["Error"] = "Błędne dane. Proszę spróbuj ponownie";
+            TempData["Error"] = "Wrong credentials. Please, try again!";
             return View(login);
         }
 

@@ -38,6 +38,7 @@ namespace CinemaProjectASP
             services.AddScoped<ISaleService, SaleService>();
             services.AddScoped<IFilmyService, FilmyService>();
 
+
             //Autoryzacja
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddMemoryCache();
@@ -67,10 +68,11 @@ namespace CinemaProjectASP
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
 
-            //autoryzacja
-            app.UseAuthorization();
+            //Authentication & Authorization
             app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseAuthorization();
 

@@ -1,6 +1,8 @@
 ﻿using CinemaProjectASP.Data;
 using CinemaProjectASP.Data.Services;
+using CinemaProjectASP.Data.Static;
 using CinemaProjectASP.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -8,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace CinemaProjectASP.Controllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     public class RezyserzyController : Controller
     {
         private readonly IRezyserzyService _service;
@@ -17,12 +20,13 @@ namespace CinemaProjectASP.Controllers
             _service = service;
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var allRezyserzy = await _service.GetAllAsync();
             return View(allRezyserzy);
         }
-
+        [AllowAnonymous]
         //GET: Rezyserzy/Szczegoly/1
         public async Task<IActionResult> Szczegoly(int id)
         {
