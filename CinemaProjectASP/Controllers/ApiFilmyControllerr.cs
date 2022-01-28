@@ -74,7 +74,7 @@ namespace CinemaProjectASP.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult<Film>> PostBook(Film film)
+        public async Task<ActionResult<Film>> PostFilm(Film film)
         {
 
             _context.Filmy.Add(film);
