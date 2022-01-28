@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaProjectASP", "CinemaProjectASP\CinemaProjectASP.csproj", "{430F0D7A-D14F-4F9B-ACAC-4DD745489F08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CinemaProjectASP", "CinemaProjectASP\CinemaProjectASP.csproj", "{430F0D7A-D14F-4F9B-ACAC-4DD745489F08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaProjectASP_Test", "CinemaProjectASP_Test\CinemaProjectASP_Test.csproj", "{BA70E9B6-EAEE-4EB6-A780-6B763D590848}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{430F0D7A-D14F-4F9B-ACAC-4DD745489F08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{430F0D7A-D14F-4F9B-ACAC-4DD745489F08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{430F0D7A-D14F-4F9B-ACAC-4DD745489F08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA70E9B6-EAEE-4EB6-A780-6B763D590848}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA70E9B6-EAEE-4EB6-A780-6B763D590848}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA70E9B6-EAEE-4EB6-A780-6B763D590848}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA70E9B6-EAEE-4EB6-A780-6B763D590848}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
